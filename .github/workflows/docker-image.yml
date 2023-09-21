@@ -17,6 +17,6 @@ jobs:
     - name: Docker Login
       run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag nrf110/gitlab-artifacts:20230915
+      run: docker build . --file Dockerfile --tag nrf110/gitlab-artifacts:20230920
     - name: Docker Push
-      run: docker push nrf110/gitlab-artifacts:20230915
+      run: docker push nrf110/gitlab-artifacts:20230920

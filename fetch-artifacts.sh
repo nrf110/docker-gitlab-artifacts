@@ -23,7 +23,7 @@ do
 
     echo "$JOBS" | jq . >> job-$cp.json
 
-    JOBS=$(echo "$JOBS" | jq '.[] | select(([.name] | inside(["test", "coverage"])) and .artifacts_file != null) | .id')
+    JOBS=$(echo "$JOBS" | jq '.[] | select(([.name] | inside(["test", "coverage"])) and (.artifacts | length) > 0) | .id')
 
     [[ -z "$JOBS" ]] && echo "No jobs in $cp" && continue
     echo "$JOBS" | while read job 
